@@ -15,6 +15,8 @@
       color="#FFF"
       height="616px"
       width="512px"
+      flat
+
       >
         <v-card-title class="headline font-color font-weight-bold">
           Result
@@ -31,7 +33,7 @@
       ></v-img> -->
 
       <img src="../result.jpg" style="height: 512px;width: 512px;"/>
-      <div class="text-center">
+      <div class="text-center button-position">
         <v-btn class="mt-12" outlined color="indigo" to="/">return</v-btn>
       </div>
       </v-card>
@@ -71,4 +73,8 @@ export default {
   color: #212121;
 }
 
+.button-position{
+  position: relative;
+  top:-5%;
+}
 </style>

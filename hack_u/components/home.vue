@@ -15,6 +15,7 @@
       color="#FFF"
       height="624px"
       width="557px"
+      flat
       >
         <v-card-title class="headline font-color">
           Research for cats
@@ -59,6 +60,15 @@
       </div>
     </v-flex>
   </v-layout>
+  <div>
+    <img class="position_neko" src="../static/blackcat2.gif">
+  </div>
+  <div>
+    <img class="position_pattern-1" src="../static/pattern-3.gif">
+  </div>
+  <div>
+    <img class="position_pattern-2" src="../static/pattern-2.gif">
+  </div>
 </div>
 </template>
 
@@ -113,5 +123,23 @@ export default {
 
 .input-group__input *{
   color: #212121 !important
+}
+
+.position_neko{
+  position: absolute;
+  top:45%;
+  right: 18%;
+}
+
+.position_pattern-1{
+  position: absolute;
+  top: -35%;
+  left: -8%;
+}
+
+.position_pattern-2{
+  position: absolute;
+  bottom: 20%;
+  right: -15%;
 }
 </style>

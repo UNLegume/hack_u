@@ -12,6 +12,7 @@
     >
 
       <v-card
+      flat
       color="#FFF"
       height="616px"
       width="512px"
@@ -38,6 +39,9 @@
 
     </v-flex>
   </v-layout>
+  <div>
+    <img class="position-success" src="../static/success.gif">
+  </div>
 </div>
 </template>
 
@@ -71,4 +75,8 @@ export default {
   color: #212121;
 }
 
+.position-success{
+  position: absolute;
+  top: 50%;
+}
 </style>
