@@ -8,7 +8,7 @@
     class="inspire"
     ></inspire>
     <img :src="img"
-      style="height: 512px; width: 512px;" />
+      style="height: 512px; width: 512px; text-align:center;" />
   </div>
 </template>
 
@@ -54,14 +54,19 @@ export default {
                  '/'                                  + this.length  +
                  '/';
 
-      console.log(url)
+      let add = 'http://626487d2.ngrok.io/';
 
-      axios.get(url)
+      console.log(add)
+
+      axios.get(add,{responseType:'arraybuffer'})
            .then(response => {
              console.log('res')
 
-             //let bstr = new Buffer(response.data, 'binary').toString('base64')
-             //console.log(bstr)
+             let bstr = new Buffer(response.data, 'binary').toString('base64')
+             console.log(bstr)
+
+             let decodeString = window.atob(response.data);
+             console.log(decodeString)
 
              this.img = response.data;
            })
