@@ -127,19 +127,19 @@ export default {
 
 .position_neko{
   position: absolute;
-  top:45%;
-  right: 18%;
+  top:390px;
+  right: 350px;
 }
 
 .position_pattern-1{
   position: absolute;
-  top: -35%;
-  left: -8%;
+  top: -210px;
+  left: -150px;
 }
 
 .position_pattern-2{
   position: absolute;
-  bottom: 20%;
-  right: -15%;
+  bottom: 200px;
+  right: -250px;
 }
 </style>
