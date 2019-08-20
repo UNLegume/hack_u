@@ -30,7 +30,7 @@
         width="512px"
       ></v-img> -->
 
-      <img :src="img" style="height: 512px;width: 512px;"/>
+      <img src="img" style="height: 512px;width: 512px;"/>
       <div class="text-center">
         <v-btn class="mt-12" outlined color="indigo" to="/">return</v-btn>
       </div>

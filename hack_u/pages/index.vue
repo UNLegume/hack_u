@@ -7,15 +7,25 @@
     <inspire
     class="inspire"
     ></inspire>
-    <img :src="img" />
+    <img :src="img"
+      style="height: 512px; width: 512px;" />
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import axios from 'axios'
+import axiosBase from 'axios'
 import home from '../components/home';
 import inspire from '../components/inspire';
+
+const axios = axiosBase.create({
+  baseURL: 'http://localhost:4000',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest'
+  },
+  responseType: 'json'
+});
 
 Vue.$http = axios;
 
@@ -40,8 +50,8 @@ export default {
   methods: {
     request: function() {
        let url = 'https://c28f21d3.ngrok.io/request/' + this.color   +
-                 '/'                                 + this.pattern +
-                 '/'                                 + this.length  +
+                 '/'                                  + this.pattern +
+                 '/'                                  + this.length  +
                  '/';
 
       console.log(url)
@@ -50,10 +60,10 @@ export default {
            .then(response => {
              console.log('res')
 
-             let bstr = new Buffer(response.data, 'binary').toString('base64')
-             console.log(bstr)
+             //let bstr = new Buffer(response.data, 'binary').toString('base64')
+             //console.log(bstr)
 
-             this.img = bstr;
+             this.img = response.data;
            })
            .catch(e => {
              console.log(e)
