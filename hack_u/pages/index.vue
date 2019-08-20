@@ -4,11 +4,6 @@
     class="home"
     @submit="request()"
     ></home>
-    <inspire
-    class="inspire"
-    ></inspire>
-    <img :src="img"
-      style="height: 512px; width: 512px; text-align:center;" />
   </div>
 </template>
 
@@ -19,7 +14,7 @@ import home from '../components/home';
 import inspire from '../components/inspire';
 
 const axios = axiosBase.create({
-  baseURL: 'http://localhost:4000',
+  //baseURL: 'http://localhost:4000',
   headers: {
     'Content-Type': 'application/json',
     'X-Requested-With': 'XMLHttpRequest'
@@ -43,45 +38,49 @@ export default {
   },
 
   components: {
-    home,
-    inspire
+    home
   },
 
   methods: {
     request: function() {
-       let url = 'https://c28f21d3.ngrok.io/request/' + this.color   +
+       let url = 'http://6e6dbeea.ngrok.io/request/' + this.color   +
                  '/'                                  + this.pattern +
                  '/'                                  + this.length  +
                  '/';
 
-      let add = 'http://626487d2.ngrok.io/';
+      //let add = 'http://626487d2.ngrok.io/';
 
-      console.log(add)
+      //console.log(add)
+      url = 'http://localhost:8000'
 
-      axios.get(add,{responseType:'arraybuffer'})
-           .then(response => {
-             console.log('res')
+      axios.get(url, {params: {
+        color: this.color,
+        pattern: this.pattern,
+        length: this.length
+      }})
+       .then(response => {
+         console.log('res');
+         this.sleep(5000);
+         this.$router.push('/inspire');
+       })
+       .catch(e => {
+         console.log(e)
+       });
 
-             let bstr = new Buffer(response.data, 'binary').toString('base64')
-             console.log(bstr)
-
-             let decodeString = window.atob(response.data);
-             console.log(decodeString)
-
-             this.img = response.data;
-           })
-           .catch(e => {
-             console.log(e)
-           });
-
-      homeDOM[0].style.display = "none";
+      //homeDOM[0].style.display = "none";
       //inspireDOM[0].style.display = "block";
+    },
+
+    sleep(waitMsec) {
+      var startMsec = new Date();
+
+      // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+      while (new Date() - startMsec < waitMsec);
     }
   },
 
   mounted: function() {
     homeDOM = document.getElementsByClassName('home');
-    inspireDOM = document.getElementsByClassName('inspire');
   }
 }
 
@@ -94,7 +93,7 @@ export default {
 }
 
 .inspire {
-  display: none;
+  display: block;
 }
 
 </style>
