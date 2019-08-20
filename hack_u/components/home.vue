@@ -58,17 +58,18 @@
       <div class="text-center">
         <v-btn @click="submit()" class="mt-12" outlined color="indigo">Submit</v-btn>
       </div>
+      <div>
+        <img class="position_neko" src="../static/blackcat2.gif">
+      </div>
+      <div>
+        <img class="position_pattern-1" src="../static/pattern-3.gif">
+      </div>
+      <div>
+        <img class="position_pattern-2" src="../static/pattern-2.gif">
+      </div>
     </v-flex>
   </v-layout>
-  <div>
-    <img class="position_neko" src="../static/blackcat2.gif">
-  </div>
-  <div>
-    <img class="position_pattern-1" src="../static/pattern-3.gif">
-  </div>
-  <div>
-    <img class="position_pattern-2" src="../static/pattern-2.gif">
-  </div>
+
 </div>
 </template>
 
@@ -128,7 +129,7 @@ export default {
 .position_neko{
   position: absolute;
   top:390px;
-  right: 350px;
+  right: 300px;
 }
 
 .position_pattern-1{
