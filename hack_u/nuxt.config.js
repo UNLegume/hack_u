@@ -49,6 +49,11 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    //proxy: true,
+  },
+
+  /*proxy: {
+    '/api/': 'http://c0d0f939.ngrok.io/request/black/mix/1/'
   },
   /*
   ** vuetify module configuration

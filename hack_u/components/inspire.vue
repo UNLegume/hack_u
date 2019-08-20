@@ -1,8 +1,9 @@
 <template>
+  <div id="root">
   <v-layout
     column
     justify-center
-    align-center  
+    align-center
   >
     <v-flex
       xs12
@@ -22,14 +23,14 @@
  <v-list-item>
 
       </v-list-item>
-  
-      <!-- <v-img 
+
+      <!-- <v-img
         src="info"
         height="512px"
         width="512px"
       ></v-img> -->
 
-      <img :src="info" style="height:512px;width:512px;" />
+      <img :src="img" style="height: 512px;width: 512px;"/>
       <div class="text-center">
         <v-btn class="mt-12" outlined color="indigo" to="/">return</v-btn>
       </div>
@@ -37,27 +38,27 @@
 
     </v-flex>
   </v-layout>
+</div>
 </template>
 
 <script>
-
+/*
 import Vue from 'vue'
 import axios from 'axios'
 Vue.$http = axios;
-
+*/
 export default {
   data () {
     return {
-      info: null
+      img: ''
     }
   },
-  mounted () {
-    axios
-      .get('http://c0d0f939.ngrok.io/request/white/mix/1/', { responseType : 'arrayBuffer' })
-      .then(response => {
-          this.info = response;
-      });
-  },
+
+  watch: {
+    img: function() {
+      console.log('blob')
+    }
+  }
 }
 </script>
 
@@ -71,4 +72,3 @@ export default {
 }
 
 </style>
-
